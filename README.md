@@ -32,19 +32,19 @@ This diagram illustrates the system architecture used for this project:
 
 ### Home Page
 
-![Home](screenshots/home.png)
+![Home](screenshots/Home.png)
 
 ### Property Listing
 
-![Properties](screenshots/property_list.png)
+![Properties](screenshots/Property_list.png)
 
 ### Property Details
 
-![Property Details](screenshots/property_details.png)
+![Property Details](screenshots/Property_details.png)
 
 ### User Dashboard
 
-![Dashboard](screenshots/dashboard.png)
+![Dashboard](screenshots/Dashboard.png)
 
 ### Signup Page
 
@@ -52,7 +52,7 @@ This diagram illustrates the system architecture used for this project:
 
 ### Login Page
 
-![Login](screenshots/login.png)
+![Login](screenshots/Login.png)
 
 ### Payment Success
 
