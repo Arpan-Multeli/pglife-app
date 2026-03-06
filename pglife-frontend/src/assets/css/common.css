@@ -1,0 +1,93 @@
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #373737;
+  font-size: 16px;
+}
+
+h1,h2,h3,h4,h5,h6 { font-weight: 600; }
+
+h1 { font-size: 36px; margin-bottom: 40px; }
+h3 { font-size: 24px; margin-bottom: 12px; }
+h5 { font-size: 16px; margin-bottom: 10px; }
+
+@media (max-width: 768px) {
+  h1 { font-size: 28px; }
+}
+
+.btn-primary, .btn-warning, .btn-danger {
+  color: white;
+  font-weight: bold;
+}
+
+.input-group .input-group-text i { width: 14px; }
+
+input[type="radio"] { position: relative; top: 1px; }
+
+/* Prefer custom container instead of overriding Bootstrap .container */
+.pgl-container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 40px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .pgl-container { padding: 0 24px; }
+}
+
+/* Page container */
+.page-container {
+  width: 100%;
+  max-width: 100%;
+  padding: 80px 40px;
+  margin: 0 auto;
+  animation: pageFade 220ms ease-out;
+}
+
+@media (max-width: 768px) {
+  .page-container { padding: 64px 24px; }
+}
+
+@keyframes pageFade {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Loading overlay */
+#loading {
+  display: none;
+  background-color: #666;
+  background-image: url("/img/progress_spinner.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.4;
+  position: fixed;
+  inset: 0;
+  z-index: 10000000;
+}
+
+/* Login modal */
+#login-modal .modal-dialog {
+  max-width: 350px;
+  margin: auto;
+}
+.modal-footer {
+  background-color: #f4f4f4;
+  justify-content: center;
+}
+
+/* Button UX */
+.btn {
+  transition: transform 140ms ease, box-shadow 140ms ease, background-color 140ms ease;
+}
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 18px rgba(0,0,0,0.10);
+}
+.btn:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.10);
+}
+

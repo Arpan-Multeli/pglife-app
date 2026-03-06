@@ -1,0 +1,309 @@
+.property-page {
+  background: #f6f7fb;
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+}
+
+/* ── Breadcrumb override ─────────────────────────────────── */
+
+.property-page .breadcrumb-wrap {
+  background: #fff;
+  border-bottom: 1px solid #eaeaef;
+  padding: 12px 0;
+}
+
+.property-page .breadcrumb-wrap .container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #888;
+}
+
+.property-page .breadcrumb-wrap a {
+  color: #e8952a;
+  text-decoration: none;
+}
+
+.property-page .breadcrumb-wrap a:hover {
+  text-decoration: underline;
+}
+
+/* ── Hero image ──────────────────────────────────────────── */
+
+.property-page .hero-image-wrap {
+  width: 100%;
+  height: 460px;
+  overflow: hidden;
+  position: relative;
+  background: #1a1a2a;
+}
+
+.property-page .hero-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Main layout: sticky sidebar + scrollable content ────── */
+
+.property-page .detail-layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 32px;
+  align-items: start;
+}
+
+/* ── Left: content column ────────────────────────────────── */
+
+.property-page .detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Summary card */
+.property-page .summary-card {
+  background: #fff;
+  border: 1px solid #eaeaef;
+  border-radius: 16px;
+  padding: 24px 28px;
+  margin-bottom: 20px;
+}
+
+.property-page .summary-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.property-page .stars {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.property-page .stars i {
+  color: #e8952a;
+  font-size: 14px;
+}
+
+.property-page .stars span {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111;
+  margin-left: 6px;
+}
+
+.property-page .fav-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  border-radius: 99px;
+  border: 1.5px solid #f0f0f4;
+  background: #fafafa;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  color: #888;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.property-page .fav-pill:hover {
+  background: #fff0f0;
+  border-color: #f5b8c4;
+  color: #e8485a;
+}
+
+.property-page .fav-pill.active {
+  background: #fff0f0;
+  border-color: #f5b8c4;
+  color: #e8485a;
+}
+
+.property-page .fav-pill i { font-size: 14px; }
+
+.property-page .interested-count {
+  font-size: 12px;
+  color: #aaa;
+}
+
+.property-page .property-name {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111;
+  letter-spacing: -0.4px;
+  margin: 0 0 6px;
+}
+
+.property-page .property-address {
+  font-size: 14px;
+  color: #888;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.property-page .property-address i {
+  color: #e8952a;
+  font-size: 12px;
+}
+
+.property-page .property-meta-tags {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.property-page .meta-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 99px;
+  font-size: 12.5px;
+  font-weight: 500;
+  background: #f3f4f8;
+  color: #555;
+}
+
+.property-page .meta-tag img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+/* ── Right: Sticky booking sidebar ───────────────────────── */
+
+.property-page .booking-sidebar {
+  position: sticky;
+  top: 80px;
+}
+
+.property-page .booking-card {
+  background: #fff;
+  border: 1px solid #eaeaef;
+  border-radius: 18px;
+  padding: 26px 24px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+}
+
+.property-page .booking-card .rent-label {
+  font-size: 12px;
+  color: #aaa;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.property-page .booking-card .rent-price {
+  font-size: 30px;
+  font-weight: 800;
+  color: #111;
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+
+.property-page .booking-card .rent-price sup {
+  font-size: 16px;
+  font-weight: 600;
+  vertical-align: super;
+}
+
+.property-page .booking-card .rent-period {
+  font-size: 13px;
+  color: #aaa;
+  margin-top: 2px;
+  margin-bottom: 20px;
+}
+
+.property-page .booking-card .divider {
+  height: 1px;
+  background: #f2f2f6;
+  margin: 18px 0;
+}
+
+.property-page .booking-card .perks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.property-page .booking-card .perk {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #555;
+}
+
+.property-page .booking-card .perk i {
+  width: 20px;
+  color: #e8952a;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.property-page .book-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #e8952a 0%, #f0a830 100%);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.15s, box-shadow 0.15s, transform 0.15s;
+  box-shadow: 0 3px 14px rgba(232, 149, 42, 0.35);
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: 0.2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.property-page .book-btn:hover {
+  opacity: 0.92;
+  box-shadow: 0 6px 20px rgba(232, 149, 42, 0.45);
+  transform: translateY(-1px);
+}
+
+.property-page .book-btn i { font-size: 14px; }
+
+.property-page .contact-note {
+  text-align: center;
+  font-size: 12px;
+  color: #bbb;
+  margin-top: 12px;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .property-page .detail-layout {
+    grid-template-columns: 1fr;
+    padding: 20px 16px;
+  }
+
+  .property-page .booking-sidebar {
+    position: static;
+    order: -1;
+  }
+
+  .property-page .hero-image-wrap {
+    height: 280px;
+  }
+}

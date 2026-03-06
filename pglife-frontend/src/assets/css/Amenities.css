@@ -1,0 +1,102 @@
+.amenities-section {
+  background: #fff;
+  border: 1px solid #eaeaef;
+  border-radius: 16px;
+  padding: 28px 28px;
+  margin-bottom: 20px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.amenities-section .section-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111;
+  letter-spacing: -0.3px;
+  margin: 0 0 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.amenities-section .section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #f0f0f5;
+}
+
+/* ── Categories grid ─────────────────────────────────────── */
+
+.amenities-section .categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 24px;
+}
+
+/* ── Single category ─────────────────────────────────────── */
+
+.amenities-section .amenity-category {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.amenities-section .category-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: #e8952a;
+  margin-bottom: 10px;
+}
+
+/* ── Single amenity row ──────────────────────────────────── */
+
+.amenities-section .amenity-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 9px;
+  background: #f8f8fb;
+  margin-bottom: 6px;
+  transition: background 0.15s ease;
+}
+
+.amenities-section .amenity-item:hover {
+  background: rgba(232, 149, 42, 0.07);
+}
+
+.amenities-section .amenity-item img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  opacity: 0.75;
+  flex-shrink: 0;
+}
+
+.amenities-section .amenity-item span {
+  font-size: 13px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* ── Empty category (no amenities) ──────────────────────── */
+
+.amenities-section .amenity-empty {
+  font-size: 12px;
+  color: #ccc;
+  font-style: italic;
+  padding: 4px 0;
+}
+
+@media (max-width: 600px) {
+  .amenities-section .categories-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .amenities-section {
+    padding: 20px 16px;
+  }
+}
