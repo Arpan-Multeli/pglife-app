@@ -160,3 +160,244 @@
 .city-circle:hover .city-icon {
   transform: scale(1.1);
 }
+
+
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+
+/* ─── TOKENS ──────────────────────────────────────── */
+:root {
+  --hs-orange:   #F5A623;
+  --hs-orange-d: #e0921a;
+  --hs-teal:     #1abc9c;
+  --hs-white:    #ffffff;
+  --hs-t3:       #94a3b8;
+}
+
+/* ─── RESET ───────────────────────────────────────── */
+.hs-hero * { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ─── HERO WRAPPER ────────────────────────────────── */
+.hs-hero {
+  position: relative;
+  width: 100%;
+  min-height: 440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  font-family: 'DM Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── BACKGROUND ──────────────────────────────────── */
+.hs-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1400&q=80')
+    center / cover no-repeat;
+  z-index: 0;
+}
+.hs-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 23, 42, 0.62) 0%,
+    rgba(15, 23, 42, 0.50) 55%,
+    rgba(15, 23, 42, 0.72) 100%
+  );
+}
+
+/* subtle radial glow */
+.hs-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 65% 55% at 50% 38%,
+    rgba(245, 166, 35, 0.13) 0%,
+    transparent 70%
+  );
+}
+
+/* ─── CONTENT ─────────────────────────────────────── */
+.hs-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 72px 20px 64px;
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* ─── PILL ────────────────────────────────────────── */
+.hs-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 999px;
+  padding: 5px 18px 5px 10px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 22px;
+  letter-spacing: -0.1px;
+  animation: hsFadeUp 0.5s 0.1s ease both;
+}
+.hs-pill-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--hs-teal);
+  box-shadow: 0 0 0 3px rgba(26, 188, 156, 0.3);
+  flex-shrink: 0;
+  animation: hsPulse 2s infinite;
+}
+
+/* ─── HEADLINE ────────────────────────────────────── */
+.hs-headline {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(2rem, 5.2vw, 3.4rem);
+  font-weight: 800;
+  color: var(--hs-white);
+  line-height: 1.1;
+  letter-spacing: -1.2px;
+  margin-bottom: 16px;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.28);
+  animation: hsFadeUp 0.52s 0.18s ease both;
+}
+.hs-grad-orange {
+  background: linear-gradient(135deg, #f97316, var(--hs-orange));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hs-grad-teal {
+  background: linear-gradient(135deg, var(--hs-teal), #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── SUBLINE ─────────────────────────────────────── */
+.hs-subline {
+  font-size: clamp(14px, 2vw, 16px);
+  color: rgba(255, 255, 255, 0.76);
+  line-height: 1.7;
+  max-width: 520px;
+  margin-bottom: 32px;
+  animation: hsFadeUp 0.52s 0.25s ease both;
+}
+
+/* ─── SEARCH BAR ──────────────────────────────────── */
+.hs-search {
+  display: flex;
+  align-items: stretch;
+  background: var(--hs-white);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.26),
+    0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 560px;
+  margin-bottom: 28px;
+  animation: hsFadeUp 0.52s 0.32s ease both;
+}
+.hs-search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 14px 18px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14.5px;
+  color: #0f172a;
+  background: transparent;
+  min-width: 0;
+}
+.hs-search-input::placeholder { color: var(--hs-t3); }
+.hs-search-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 26px;
+  background: var(--hs-orange);
+  color: var(--hs-white);
+  border: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.hs-search-btn:hover { background: var(--hs-orange-d); }
+
+/* ─── STATS ───────────────────────────────────────── */
+.hs-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  flex-wrap: wrap;
+  animation: hsFadeUp 0.52s 0.4s ease both;
+}
+.hs-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.hs-stat-val {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--hs-white);
+  line-height: 1;
+  letter-spacing: -0.5px;
+}
+.hs-stat-lbl {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+}
+.hs-stat-div {
+  width: 1px;
+  height: 26px;
+  background: rgba(255, 255, 255, 0.18);
+  flex-shrink: 0;
+}
+
+/* ─── ANIMATIONS ──────────────────────────────────── */
+@keyframes hsFadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes hsPulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(26,188,156,.4); }
+  50%      { box-shadow: 0 0 0 6px rgba(26,188,156, 0); }
+}
+
+/* ─── RESPONSIVE ──────────────────────────────────── */
+@media (max-width: 600px) {
+  .hs-content    { padding: 56px 16px 48px; }
+  .hs-search-btn { padding: 0 18px; font-size: 14px; }
+  .hs-stats      { gap: 14px; }
+}
+@media (max-width: 380px) {
+  .hs-search { flex-direction: column; border-radius: 12px; }
+  .hs-search-input { padding: 14px 16px; text-align: center; }
+  .hs-search-btn { padding: 13px 16px; justify-content: center; border-radius: 0; }
+}

@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom"; // Added useNavigate for search
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../assets/css/home.css";
@@ -11,17 +11,37 @@ import {
 } from "../services/api";
 import { getLoggedInUser } from "../utils/auth";
 
+const SearchIcon = () => (
+  <svg
+    width="15"
+    height="15"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.2"
+    viewBox="0 0 20 20"
+  >
+    <circle cx="9" cy="9" r="6" />
+    <path d="m15 15-3-3" />
+  </svg>
+);
+
+const STATS = [
+  { val: "5K+", lbl: "Listings" },
+  { val: "4 ", lbl: "Cities" },
+  { val: "4.8★", lbl: "Avg Rating" },
+  { val: "2L+", lbl: "Tenants" },
+];
+
 function Home() {
   const [properties, setProperties] = useState([]);
   const [favorites, setFavorites] = useState([]);
-  const [city, setCity] = useState(""); // Added missing state
+  const [city, setCity] = useState("");
   const navigate = useNavigate();
 
   const user = getLoggedInUser();
   const userId = user?.id;
 
   useEffect(() => {
-    // Basic error handling to prevent crashes if API is not ready
     getPropertiesByCity(1).then(setProperties).catch(err => console.log("API Error:", err));
     if (userId) {
       getFavoriteProperties(userId).then(setFavorites).catch(err => console.log("API Error:", err));
@@ -31,9 +51,9 @@ function Home() {
   const allowedCities = ["mumbai", "delhi", "bangalore", "hyderabad"];
 
   const handleSearch = (e) => {
-    e.preventDefault(); // ✅ stop form submit redirect
+    if (e) e.preventDefault();
 
-    const input = (city || "").trim().toLowerCase(); // ✅ use city (your state)
+    const input = (city || "").trim().toLowerCase();
 
     if (!input) {
       alert("Please enter a city");
@@ -45,7 +65,7 @@ function Home() {
       return;
     }
 
-    navigate(`/properties?city=${input}`); // ✅ navigate only if valid
+    navigate(`/properties?city=${input}`);
   };
 
   const toggleFavorite = (propertyId) => {
@@ -69,28 +89,60 @@ function Home() {
 
   return (
     <>
-      {/* Navbar Component */}
       <Navbar />
 
-      {/* Banner */}
       {/* Hero */}
-      <section className="hero-section">
-        <div className="hero-overlay">
-          <h1 className="hero-title">Happiness per Square Foot</h1>
+      <section className="hs-hero">
+        <div className="hs-bg" />
+        <div className="hs-glow" />
 
-          <form onSubmit={handleSearch} className="hero-search">
+        <div className="hs-content">
+          <div className="hs-pill">
+            <span className="hs-pill-dot" />
+            Trusted by 2,00,000+ tenants across India
+          </div>
+
+          <h1 className="hs-headline">
+            <span className="hs-grad-orange">Happiness</span>{" "}
+            per Square{" "}
+            <span className="hs-grad-teal">Foot.</span>
+          </h1>
+
+          <p className="hs-subline">
+            Browse thousands of verified PG accommodations across India's major
+            cities. Filter by budget, amenities &amp; gender — and move in with
+            confidence.
+          </p>
+
+          <div className="hs-search">
             <input
               type="text"
-              placeholder="Enter your city to search for PGs"
+              className="hs-search-input"
+              placeholder="Enter your city to search for PGs…"
               value={city}
               onChange={(e) => setCity(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && handleSearch()}
             />
-            <button type="submit">Search</button>
-          </form>
+            <button className="hs-search-btn" onClick={handleSearch}>
+              <SearchIcon />
+              Search
+            </button>
+          </div>
+
+          <div className="hs-stats">
+            {STATS.map((s, i) => (
+              <React.Fragment key={s.lbl}>
+                <div className="hs-stat">
+                  <span className="hs-stat-val">{s.val}</span>
+                  <span className="hs-stat-lbl">{s.lbl}</span>
+                </div>
+                {i < STATS.length - 1 && <div className="hs-stat-div" />}
+              </React.Fragment>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Major Cities */}
       {/* Major Cities */}
       <div className="container mt-5">
         <h1 className="city-heading mb-5 text-center">Major Cities</h1>
@@ -112,7 +164,6 @@ function Home() {
         </div>
       </div>
 
-      {/* Footer Component */}
       <Footer />
     </>
   );
