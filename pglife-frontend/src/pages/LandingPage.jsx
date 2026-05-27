@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../assets/css/LandingPage.css";
+// import "../assets/css/LandingPage.css";
 import Navbar from "../components/Navbar";
 
 export default function LandingPage() {
