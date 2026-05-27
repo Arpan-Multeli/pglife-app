@@ -56,7 +56,7 @@ const PropertyList = () => {
       return;
     }
 
-    fetch(`http://localhost:8080/api/properties/city/${cityId}`)
+    fetch(`${import.meta.env.VITE_API_BASE_URL}/api/properties/city/${cityId}`)
       .then((res) => {
         if (!res.ok) throw new Error("API error");
         return res.json();

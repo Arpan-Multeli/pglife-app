@@ -31,7 +31,7 @@ function Signup() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:8080/api/auth/register", {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -48,7 +48,7 @@ function Signup() {
         const regText = await response.text();
         console.log("REGISTER OK:", regText);
 
-        const loginRes = await fetch("http://localhost:8080/api/auth/login", {
+        const loginRes = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/auth/login`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({

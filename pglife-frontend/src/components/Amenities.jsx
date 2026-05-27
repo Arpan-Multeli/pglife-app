@@ -38,7 +38,7 @@ const Amenities = ({ amenities: amenitiesProp }) => {
   useEffect(() => {
     if (Array.isArray(amenitiesProp)) return; // props given -> no fetch
 
-    fetch(`http://localhost:8080/api/amenities/property/${id}`)
+    fetch(`${import.meta.env.VITE_API_BASE_URL}/api/amenities/property/${id}`)
       .then((res) => res.json())
       .then((data) => setAmenitiesFromApi(Array.isArray(data) ? data.map((a) => a.name) : []))
       .catch((err) => console.log(err));
