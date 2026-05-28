@@ -15,6 +15,6 @@ public class WebConfig implements WebMvcConfigurer {
                         "https://pglife-app.vercel.app")
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*");
-                .allowCredentials(true);
+                
     }
 }
