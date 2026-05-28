@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
-import "../assets/css/Amenities.css";
+import "../assets/css/amenities.css";
 
 const CATEGORY_MAP = {
   Building: ["Power Backup", "Lift"],
