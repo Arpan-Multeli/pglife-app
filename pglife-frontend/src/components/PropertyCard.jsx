@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "../assets/css/propertyCard.css";
+import "../assets/css/PropertyCard.css";
 
 const PropertyCard = ({ property, cityName, isFavorite, onToggleFavorite, from = "properties" }) => {
     const { id, name, address, rent, rating, gender, imageUrl, genderIcon, amenities = [] } = property;

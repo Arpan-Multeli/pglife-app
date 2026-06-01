@@ -1,0 +1,125 @@
+.testimonials-section {
+  background: #fff;
+  border: 1px solid #eaeaef;
+  border-radius: 16px;
+  padding: 28px 28px;
+  margin-bottom: 20px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.testimonials-section .section-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111;
+  letter-spacing: -0.3px;
+  margin: 0 0 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.testimonials-section .section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #f0f0f5;
+}
+
+/* ── Testimonials list ───────────────────────────────────── */
+
+.testimonials-section .testimonials-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ── Single testimonial card ─────────────────────────────── */
+
+.testimonials-section .t-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: #f8f8fb;
+  border: 1px solid #f0f0f5;
+  border-radius: 14px;
+  padding: 18px 20px;
+  transition: box-shadow 0.18s ease, transform 0.15s ease;
+}
+
+.testimonials-section .t-card:hover {
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
+  transform: translateY(-1px);
+}
+
+/* Avatar */
+.testimonials-section .t-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Text body */
+.testimonials-section .t-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.testimonials-section .t-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.testimonials-section .t-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111;
+}
+
+.testimonials-section .t-stars {
+  display: flex;
+  gap: 2px;
+}
+
+.testimonials-section .t-stars i {
+  color: #e8952a;
+  font-size: 11px;
+}
+
+.testimonials-section .t-text {
+  font-size: 13.5px;
+  color: #666;
+  line-height: 1.65;
+  margin: 0;
+  position: relative;
+  padding-left: 18px;
+}
+
+.testimonials-section .t-text::before {
+  content: '\201C';
+  position: absolute;
+  left: 0;
+  top: -2px;
+  font-size: 22px;
+  color: #e8952a;
+  line-height: 1;
+  font-family: Georgia, serif;
+}
+
+@media (max-width: 600px) {
+  .testimonials-section {
+    padding: 20px 16px;
+  }
+
+  .testimonials-section .t-card {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
