@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
+import LandingPage from "./pages/LandingPage";
 import Dashboard from "./pages/Dashboard";
 import PropertyDetail from "./pages/PropertyDetail";
 import PropertyList from "./pages/PropertyList";
@@ -10,12 +11,13 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/properties" element={<PropertyList />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/property/:id" element={<PropertyDetail />} /> 
+        <Route path="/property/:id" element={<PropertyDetail />} />
       </Routes>
     </BrowserRouter>
   );
