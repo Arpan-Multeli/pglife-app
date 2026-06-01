@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "../assets/css/LandingPage.css";
+import "../assets/css/landingPage.css";
 import Navbar from "../components/Navbar";
+import bgImage from "../assets/img/bg.png";
 
 export default function LandingPage() {
-    const [bannerVisible, setBannerVisible] = useState(true);
     const navigate = useNavigate();
+    const [loaded, setLoaded] = useState(false);
+
+    useEffect(() => {
+        const timer = setTimeout(() => setLoaded(true), 100);
+        return () => clearTimeout(timer);
+    }, []);
 
     const handleStart = () => {
         const token = localStorage.getItem("token");
-
         if (token) {
             navigate("/home");
         } else {
@@ -18,56 +23,91 @@ export default function LandingPage() {
     };
 
     return (
-        <div className="pg-root">
+        <div className={`lp-root ${loaded ? "lp-loaded" : ""}`}>
             <Navbar variant="landing" />
 
-            {/* ── HERO ────────────────────────────────────────── */}
-            <main className="pg-hero">
-                <div className="pg-pill">
-                    <span className="pg-pill-dot" />
-                    <span>Trusted by 2,00,000+ tenants across India</span>
-                </div>
+            {/* ── FULL-SCREEN HERO ─────────────────────────────── */}
+            <section className="lp-hero">
+                {/* Background image layer */}
+                <div
+                    className="lp-hero-bg"
+                    style={{ backgroundImage: `url(${bgImage})` }}
+                />
+                {/* Cinematic overlay */}
+                <div className="lp-hero-overlay" />
 
-                <h1 className="pg-headline">
-                    The smartest way to find a{" "}
-                    <span className="pg-grad-orange">PG</span>{" "}
-                    <span className="pg-grad-teal">that feels like home.</span>
-                </h1>
+                {/* Content grid: left text + right card */}
+                <div className="lp-hero-content">
+                    {/* ── LEFT COLUMN ── */}
+                    <div className="lp-hero-left">
+                        <div className="lp-tag">
+                            <span className="lp-tag-dot" />
+                            <span>India's #1 PG Discovery Platform</span>
+                        </div>
 
-                <p className="pg-subline">
-                    Browse thousands of verified paying guest accommodations across India's major cities.
-                    Filter by budget, amenities, and gender — and move in with confidence.
-                </p>
+                        <h1 className="lp-title">
+                            Find Your
+                            <br />
+                            <span className="lp-title-accent">Perfect PG</span>
+                            <br />
+                            Stay.
+                        </h1>
 
-                <div className="pg-ctas">
-                    <button className="pg-cta-primary" onClick={handleStart}>
-                        Find Your Perfect PG  &nbsp;→
-                    </button>
-                </div>
+                        <p className="lp-desc">
+                            Verified paying guest accommodations across India's top cities. 
+                            Search by budget, amenities, and location — move in with confidence.
+                        </p>
 
-                <div className="pg-trust">
-                    {[
-                        ["5K+", "Active Listings"],
-                        ["4 ", "Cities"],
-                        ["4.8★", "Avg Rating"],
-                        ["2L+", "Happy Tenants"],
-                    ].map(([val, lbl], i, arr) => (
-                        <React.Fragment key={lbl}>
-                            <div className="pg-trust-item">
-                                <span className="pg-trust-val">{val}</span>
-                                <span className="pg-trust-lbl">{lbl}</span>
+                        <div className="lp-cta-row">
+                            <button className="lp-cta-start" onClick={handleStart}>
+                                Get Started
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </button>
+                            <button className="lp-cta-explore" onClick={() => navigate("/search")}>
+                                Explore PGs
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* ── RIGHT COLUMN: Glass Info Card ── */}
+                    <div className="lp-hero-right">
+                        <div className="lp-glass-card">
+                            <div className="lp-glass-header">
+                                <span className="lp-glass-live" />
+                                <span>Live Availability</span>
                             </div>
-                            {i < arr.length - 1 && <div className="pg-trust-div" />}
-                        </React.Fragment>
-                    ))}
+                            <div className="lp-glass-stats">
+                                <div className="lp-glass-stat">
+                                    <span className="lp-glass-num">5,200+</span>
+                                    <span className="lp-glass-label">Active Listings</span>
+                                </div>
+                                <div className="lp-glass-divider" />
+                                <div className="lp-glass-stat">
+                                    <span className="lp-glass-num">4</span>
+                                    <span className="lp-glass-label">Major Cities</span>
+                                </div>
+                            </div>
+                            <div className="lp-glass-cities">
+                                {["Delhi", "Mumbai", "Bengaluru", "Chennai"].map((city) => (
+                                    <span key={city} className="lp-glass-city">{city}</span>
+                                ))}
+                            </div>
+                            <div className="lp-glass-rating">
+                                <div className="lp-stars">
+                                    {"★★★★★".split("").map((s, i) => (
+                                        <span key={i} className="lp-star">{s}</span>
+                                    ))}
+                                </div>
+                                <span className="lp-rating-text">4.8 avg · 2L+ happy tenants</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </main>
 
-            {/* bottom badge */}
-            <div className="pg-demo-badge">
-                <span className="pg-demo-dot" />
-                Live preview of <strong>&nbsp;PG Life</strong>
-            </div>
+                
+            </section>
         </div>
     );
 }
