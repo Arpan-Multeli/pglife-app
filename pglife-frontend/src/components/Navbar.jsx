@@ -55,7 +55,7 @@ export default function Navbar({ variant = "default" }) {
         return;
       }
 
-      const response = await fetch(`http://localhost:8080/api/auth/upgrade-owner/${userId}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/auth/upgrade-owner/${userId}`, {
         method: "PUT",
       });
 
@@ -99,7 +99,7 @@ export default function Navbar({ variant = "default" }) {
 
   return (
     <div className="nb-wrapper">
-      {bannerVisible && (
+      {bannerVisible && !isLanding && (
         <div className="nb-banner">
           <span>
             🏠 Now available in 4 major cities —{" "}
@@ -126,19 +126,20 @@ export default function Navbar({ variant = "default" }) {
               <img src="/img/logo.png" alt="PG Life" className="nb-logo-img" />
             </Link>
           </div>
-
-          <nav className="nb-links">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link}
-                to="#"
-                onClick={handleComingSoon}
-                className="nb-link"
-              >
-                {link}
-              </Link>
-            ))}
-          </nav>
+          {!isLanding && (
+            <nav className="nb-links">
+              {NAV_LINKS.map((link) => (
+                <Link
+                  key={link}
+                  to="#"
+                  onClick={handleComingSoon}
+                  className="nb-link"
+                >
+                  {link}
+                </Link>
+              ))}
+            </nav>
+          )}
 
           <div className="nb-actions">
             {isLanding ? (
