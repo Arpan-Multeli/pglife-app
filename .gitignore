@@ -50,3 +50,4 @@ Thumbs.db
 *.local
 
 backend/src/main/resources/application.properties
+pglife-frontend/src_backup
