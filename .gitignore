@@ -49,3 +49,8 @@ Thumbs.db
 .env.*
 *.local
 
+<<<<<<< HEAD
+=======
+backend/src/main/resources/application.properties
+pglife-frontend/src_backup
+>>>>>>> 8a1a0fa (fix: correct CSS import casing in Amenities and Testimonials components)

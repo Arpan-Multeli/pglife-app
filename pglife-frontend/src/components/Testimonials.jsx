@@ -1,5 +1,5 @@
 import React from "react";
-import"../assets/css/Testimonials.css";
+import"../assets/css/testimonials.css";
 
 const testimonials = [
   {
